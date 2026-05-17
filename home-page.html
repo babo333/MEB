@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMB Web Homepage - Căutare</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Containerul pentru logo-ul din stânga sus */
+        .header-info {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            text-align: left;
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .header-info img {
+            max-width: 80px; /* Dimensiune mica pentru logo-ul babo */
+            height: auto;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Stil pentru logo-ul BMB (deasupra barei de căutare) */
+        #bmb-logo {
+            max-width: 250px; /* Dimensiunea mare a logo-ului */
+            height: auto;
+            margin-bottom: 30px; /* Spațiu între logo și bara de căutare */
+        }
+
+        /* Stiluri pentru bara de căutare */
+        .search-container {
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        #search-input {
+            flex-grow: 1;
+            padding: 15px 20px;
+            border: none;
+            font-size: 1.1em;
+            outline: none;
+        }
+
+        #search-button {
+            padding: 15px 20px;
+            background-color: #007FFF; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        #search-button:hover {
+            background-color: #005fcc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-info">
+        Make by:
+        <img src="babo logo.png" alt="Logo Babo">
+    </div>
+
+    <img src="logo.png" alt="BMB WEB" id="bmb-logo">
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search Bar" onkeypress="if(event.key === 'Enter') performSearch();">
+        <button id="search-button" onclick="performSearch()">Căutare Google</button>
+    </div>
+
+    <script>
+        function performSearch() {
+            var query = document.getElementById('search-input').value;
+            if (query.trim() !== "") {
+                // Redirectioneaza catre Google Search cu termenul introdus
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+            }
+        }
+    </script>
+
+</body>
+</html>
